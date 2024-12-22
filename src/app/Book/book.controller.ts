@@ -8,14 +8,14 @@ const createBook = async (req: Request, res: Response) =>{
 
         const result = await BookService.createBookInDB(bookData)
 
-        res.send(200).json({
+        res.status(200).json({
             success: true,
             message: 'Book created successfully',
             data: result
         })
 
     } catch (error) {
-        res.send(500).json({
+        res.status(500).json({
             success: false,
             message: 'Something went wrong',
             data: error
