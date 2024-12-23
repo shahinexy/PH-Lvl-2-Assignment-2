@@ -7,6 +7,18 @@ const createBookInDB = async (bookData: Book) =>{
     return result
 }
 
+const getAllBooksFromDB = async () =>{
+    const result = await BookModle.find()
+    return result;
+}
+
+const getSingleBookFromDB = async (productId: string) =>{
+    const result = await BookModle.findOne({_id: productId})
+    return result;
+}
+
 export const BookService = {
-    createBookInDB
+    createBookInDB,
+    getAllBooksFromDB,
+    getSingleBookFromDB
 }
