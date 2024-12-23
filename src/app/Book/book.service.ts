@@ -22,9 +22,14 @@ const updateSingleBookFromDB = async (productId: string, updateData: Book) =>{
     return result;
 }
 
+const deleteSingleBookFromDB = async (productId: string) =>{
+    const result = await BookModle.findByIdAndDelete({_id: productId})
+    return result;
+}
 export const BookService = {
     createBookInDB,
     getAllBooksFromDB,
     getSingleBookFromDB,
-    updateSingleBookFromDB
+    updateSingleBookFromDB,
+    deleteSingleBookFromDB
 }

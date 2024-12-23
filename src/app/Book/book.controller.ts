@@ -30,7 +30,7 @@ const getBooks = async (req: Request, res: Response) =>{
 
         res.status(200).json({
             success: true,
-            message: 'Book created successfully',
+            message: 'Gert All Books Successfully',
             data: result
         })
 
@@ -51,7 +51,7 @@ const getSingleBook = async (req: Request, res: Response) =>{
 
         res.status(200).json({
             success: true,
-            message: 'Book created successfully',
+            message: 'Get The Book Successfully',
             data: result
         })
 
@@ -73,7 +73,28 @@ const updateSingleBook = async (req: Request, res: Response) =>{
 
         res.status(200).json({
             success: true,
-            message: 'Book created successfully',
+            message: 'Book updated successfully',
+            data: result
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Something went wrong',
+            data: error
+        })
+    }
+}
+
+const deleteSingleBook = async (req: Request, res: Response) =>{
+    try {
+        const {productId} = req.params;
+
+        const result = await BookService.deleteSingleBookFromDB(productId)
+
+        res.status(200).json({
+            success: true,
+            message: 'Book deleted successfully',
             data: result
         })
 
@@ -90,5 +111,6 @@ export const BookController = {
     createBook,
     getBooks,
     getSingleBook,
-    updateSingleBook
+    updateSingleBook,
+    deleteSingleBook
 }
