@@ -17,8 +17,14 @@ const getSingleBookFromDB = async (productId: string) =>{
     return result;
 }
 
+const updateSingleBookFromDB = async (productId: string, updateData: Book) =>{
+    const result = await BookModle.updateOne({_id: productId}, {$set: updateData});
+    return result;
+}
+
 export const BookService = {
     createBookInDB,
     getAllBooksFromDB,
-    getSingleBookFromDB
+    getSingleBookFromDB,
+    updateSingleBookFromDB
 }

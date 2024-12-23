@@ -64,8 +64,31 @@ const getSingleBook = async (req: Request, res: Response) =>{
     }
 }
 
+const updateSingleBook = async (req: Request, res: Response) =>{
+    try {
+        const {productId} = req.params;
+        const updateData = req.body;
+
+        const result = await BookService.updateSingleBookFromDB(productId, updateData)
+
+        res.status(200).json({
+            success: true,
+            message: 'Book created successfully',
+            data: result
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Something went wrong',
+            data: error
+        })
+    }
+}
+
 export const BookController = {
     createBook,
     getBooks,
-    getSingleBook
+    getSingleBook,
+    updateSingleBook
 }
