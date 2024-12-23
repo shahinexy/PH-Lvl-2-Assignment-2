@@ -7,5 +7,5 @@ export type Book ={
     category: 'Fiction' | 'Science' | 'SelfDevelopment' | 'Poetry' | 'Religious';
     description: string;
     quantity: number;
-    inStock: 'Stock' | 'Stock Out'
+    inStock: boolean
 }

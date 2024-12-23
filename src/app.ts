@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors())
 
 // application router 
-app.use('/api/vi/book', BookRouter)
+app.use('/api/products', BookRouter)
 
 app.get('/', (req: Request, res: Response) => {
   const a = 10;

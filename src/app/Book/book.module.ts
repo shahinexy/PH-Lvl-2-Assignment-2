@@ -2,19 +2,19 @@ import { Schema, model } from 'mongoose';
 import { Book } from './book.interface';
 
 const bookSchema = new Schema<Book>({
-    title: String,
-    author: String,
-    price: Number,
+    title: {type: String, required: true},
+    author: {type: String, required: true},
+    price: {type: Number, required: true},
     category: {
         type: String,
-        enum: [ 'Fiction' , 'Science' , 'SelfDevelopment' , 'Poetry' , 'Religious']
+        enum: [ 'Fiction' , 'Science' , 'SelfDevelopment' , 'Poetry' , 'Religious'],
+        required: true
     },
-    description: String,
-    quantity: Number,
-    inStock: {
-        type: String,
-        enum: ['Stock' , 'Stock Out']
-    }
+    description: {type: String, required: true},
+    quantity: {type: Number, required: true},
+    inStock: Boolean
+}, {
+    timestamps: true
 })
   
 
