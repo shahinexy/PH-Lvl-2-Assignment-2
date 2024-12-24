@@ -107,10 +107,36 @@ const deleteSingleBook = async (req: Request, res: Response) =>{
     }
 }
 
+const searchBook = async (req: Request, res: Response) =>{
+    try {
+        const {searchTerm} = req.query;
+
+        if(!searchTerm || typeof searchTerm !== 'string'){
+            return res.status(400).json({message: 'Search term is required'})
+        }
+
+        const result = await BookService.searchBookFromDB(searchTerm)
+
+        res.status(200).json({
+            success: true,
+            message: 'Searched books get successfully',
+            data: result
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Something went wrong',
+            data: error
+        })
+    }
+}
+
 export const BookController = {
     createBook,
     getBooks,
     getSingleBook,
     updateSingleBook,
-    deleteSingleBook
+    deleteSingleBook,
+    searchBook
 }

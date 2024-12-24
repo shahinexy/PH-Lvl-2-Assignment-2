@@ -26,10 +26,27 @@ const deleteSingleBookFromDB = async (productId: string) =>{
     const result = await BookModle.findByIdAndDelete({_id: productId})
     return result;
 }
+
+const searchBookFromDB = async (searchTerm: string) =>{
+
+    const regexSearchTerm = new RegExp(searchTerm as string, 'i')
+
+    const result = await BookModle.find({
+        $or: [
+            {title: regexSearchTerm},
+            {author: regexSearchTerm},
+            {category: regexSearchTerm},
+        ]
+    })
+
+    return result
+}
+
 export const BookService = {
     createBookInDB,
     getAllBooksFromDB,
     getSingleBookFromDB,
     updateSingleBookFromDB,
-    deleteSingleBookFromDB
+    deleteSingleBookFromDB,
+    searchBookFromDB
 }
