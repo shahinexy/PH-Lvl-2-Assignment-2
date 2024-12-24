@@ -69,6 +69,15 @@ const updateSingleBook = async (req: Request, res: Response) =>{
         const {productId} = req.params;
         const updateData = req.body;
 
+        const book = await BookService.getSingleBookFromDB(productId)
+
+        if(!book){
+            return res.status(404).json({
+                success: false,
+                message: 'Book not found'
+            })
+        }
+
         const result = await BookService.updateSingleBookFromDB(productId, updateData)
 
         res.status(200).json({
@@ -116,6 +125,13 @@ const searchBook = async (req: Request, res: Response) =>{
         }
 
         const result = await BookService.searchBookFromDB(searchTerm)
+
+        if (result.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: `No books found for the search term: "${searchTerm}"`,
+            });
+        }
 
         res.status(200).json({
             success: true,
