@@ -25,6 +25,11 @@ const createtOrderinDB = async (orderData: Order) => {
   return result;
 };
 
+const getAllOrderFromDB = async () =>{
+  const result = await OrderModule.find()
+  return result;
+}
+
 const getTotalRevenueFromDB = async () =>{
   const result = await OrderModule.aggregate([
     {
@@ -40,5 +45,6 @@ const getTotalRevenueFromDB = async () =>{
 
 export const OrderServer = {
   createtOrderinDB,
-  getTotalRevenueFromDB
+  getTotalRevenueFromDB,
+  getAllOrderFromDB
 };
