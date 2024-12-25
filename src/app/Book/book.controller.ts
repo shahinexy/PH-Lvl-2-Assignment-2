@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { BookService } from "./book.service";
 import BookValidationSchema from "./book.validation";
 
@@ -67,7 +67,7 @@ const getSingleBook = async (req: Request, res: Response) =>{
     }
 }
 
-const updateSingleBook = async (req: Request, res: Response) =>{
+const updateSingleBook = async (req: Request, res: Response): Promise<any> =>{
     try {
         const {productId} = req.params;
         const updateData = req.body;
@@ -119,7 +119,7 @@ const deleteSingleBook = async (req: Request, res: Response) =>{
     }
 }
 
-const searchBook = async (req: Request, res: Response) =>{
+const searchBook = async (req: Request, res: Response, next: NextFunction): Promise<any> =>{
     try {
         const {searchTerm} = req.query;
 
@@ -148,6 +148,7 @@ const searchBook = async (req: Request, res: Response) =>{
             message: 'Something went wrong',
             data: error
         })
+        next(error)
     }
 }
 
