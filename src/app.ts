@@ -14,8 +14,10 @@ app.use('/api/products', BookRouter)
 app.use('/api/orders', OrderRouter)
 
 app.get('/', (req: Request, res: Response) => {
-  const a = 10;
-  res.send(a)
+  res.send({
+    status: true,
+    message: "Book server is running"
+  })
 })
 
 export default app;
