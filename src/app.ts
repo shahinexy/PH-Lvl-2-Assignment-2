@@ -13,6 +13,13 @@ app.use('/api/products', BookRouter)
 
 app.use('/api/orders', OrderRouter)
 
+app.use('*', (req, res) => {
+  res.status(404).json({
+      success: false,
+      message: `Route ${req.originalUrl} not found`
+  });
+});
+
 app.get('/', (req: Request, res: Response) => {
   res.send({
     status: true,
