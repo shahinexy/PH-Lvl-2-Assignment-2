@@ -1,7 +1,7 @@
 # Book Shop Server
 Developed an Express application with TypeScript, integrating MongoDB with Mongoose to manage a Book Store.
 
-Live link: [text](https://ph-assignment-2-basic-mongoose.vercel.app/)
+Live link: (https://ph-assignment-2-basic-mongoose.vercel.app/)
 
 ### Key Features
 - Add new Book with details like title, author, price, category, description, quantity, and stock 
@@ -23,14 +23,44 @@ Live link: [text](https://ph-assignment-2-basic-mongoose.vercel.app/)
 ### Check API end point 
 
 #### Book
-Post a Book: (post method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products
-Get All Books: (get method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products
-Get A Single Book: (get method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
-Update A Book Data: (put method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
-Delete A Book: (delete method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
-Search Books: (get method) https://ph-assignment-2-basic-mongoose.vercel.app/api/products/products?searchTerm=(text)
+- Post a Book: (post method)
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products
+- Get All Books: (get method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products
+- Get A Single Book: (get method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
+- Update A Book Data: (put method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
+- Delete A Book: (delete method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products/(book id)
+- Search Books: (get method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/products/products?searchTerm=(text)
 
 #### Order
-Order a Book: (post method) https://ph-assignment-2-basic-mongoose.vercel.app/api/orders
-Get All Order: (get method) https://ph-assignment-2-basic-mongoose.vercel.app/api/orders
-Get Total Revenue: (get method) https://ph-assignment-2-basic-mongoose.vercel.app/api/orders/revenue
+- Order a Book: (post method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/orders
+- Get All Order: (get method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/orders
+- Get Total Revenue: (get method) 
+  ==> https://ph-assignment-2-basic-mongoose.vercel.app/api/orders/revenue
+
+### Project Set-Up Instructions 
+
+#### 1. Clone the Repository
+```
+https://github.com/shahinexy/PH-Lvl-2-Assignment-2.git
+```
+
+#### 2.  Install Dependencies
+```
+npm install 
+```
+#### 3. Set up Environment variables create an .env file in the root directory and include the following
+```
+PORT=4000
+DATABASE_URL=mongodb://localhost:27017
+```
+#### 4. Run the server in development mode
+```
+npm run dev 
+```
