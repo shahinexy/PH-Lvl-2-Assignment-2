@@ -1,7 +1,9 @@
 # Book Shop Server
 Developed an Express application with TypeScript, integrating MongoDB with Mongoose to manage a Book Store.
 
-Live link: (https://ph-assignment-2-basic-mongoose.vercel.app/)
+Live link: https://ph-assignment-2-basic-mongoose.vercel.app/
+
+Explanation video: https://www.loom.com/share/f65e6136fdbd44d5b930c8f4dc67dd80?sid=a7f931e7-32b7-43d4-a65c-5365d78ad35a
 
 ### Key Features
 - Add new Book with details like title, author, price, category, description, quantity, and stock 
