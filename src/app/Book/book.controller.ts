@@ -1,12 +1,15 @@
 import { Request, Response } from "express";
 import { BookService } from "./book.service";
+import BookValidationSchema from "./book.validation";
 
 
 const createBook = async (req: Request, res: Response) =>{
     try {
         const {book: bookData} = req.body;
 
-        const result = await BookService.createBookInDB(bookData)
+        const validetData = BookValidationSchema.parse(bookData)
+
+        const result = await BookService.createBookInDB(validetData)
 
         res.status(200).json({
             success: true,

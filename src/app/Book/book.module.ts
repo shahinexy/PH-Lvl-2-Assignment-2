@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 import { Book } from './book.interface';
 
 const bookSchema = new Schema<Book>({
-    title: {type: String, required: true},
+    title: {type: String, required: true, unique: true},
     author: {type: String, required: true},
     price: {type: Number, required: true},
     category: {
